@@ -1,0 +1,10 @@
+D:\Code\BowlingProgram\BowlingProgram\bin\Debug\BowlingProgram.exe.config
+D:\Code\BowlingProgram\BowlingProgram\bin\Debug\BowlingProgram.exe
+D:\Code\BowlingProgram\BowlingProgram\bin\Debug\BowlingProgram.pdb
+D:\Code\BowlingProgram\BowlingProgram\obj\Debug\BowlingProgram.csprojAssemblyReference.cache
+D:\Code\BowlingProgram\BowlingProgram\obj\Debug\BowlingProgram.Form1.resources
+D:\Code\BowlingProgram\BowlingProgram\obj\Debug\BowlingProgram.Properties.Resources.resources
+D:\Code\BowlingProgram\BowlingProgram\obj\Debug\BowlingProgram.csproj.GenerateResource.cache
+D:\Code\BowlingProgram\BowlingProgram\obj\Debug\BowlingProgram.csproj.CoreCompileInputs.cache
+D:\Code\BowlingProgram\BowlingProgram\obj\Debug\BowlingProgram.exe
+D:\Code\BowlingProgram\BowlingProgram\obj\Debug\BowlingProgram.pdb
