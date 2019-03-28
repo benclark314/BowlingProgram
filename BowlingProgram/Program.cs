@@ -1,4 +1,9 @@
-﻿using System;
+﻿// ===============================
+// AUTHOR       : Ben Clark
+// CREATE DATE  : 2019-03-28
+// PURPOSE      : To calculate the score of a full round of bowling.
+// ===============================
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

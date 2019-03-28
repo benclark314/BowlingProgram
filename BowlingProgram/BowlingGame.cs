@@ -13,16 +13,16 @@ namespace BowlingProgram
          * Instance variables
          * 
          */
-        //2-dimensional array with {frame, shot}:
+        //2-dimensional array with {frame, shot}
         public int[,] shotValue = new int[10, 2];
 
-        //The running game score:
+        //The running game score
         public int gameScore;
 
-        //The value of the additional shot at the end of the game:
+        //The value of the additional shot at the end of the game
         public int additionalShotValue;
 
-        //A flag for invalid data:
+        //A flag for invalid data
         public bool invalidEntryFlag;
 
 
@@ -37,13 +37,13 @@ namespace BowlingProgram
          */
         public BowlingGame()
         {
-            //Initialize the instance variables:
+            //Initialize the instance variables.
             gameScore = 0;
             additionalShotValue = 0;
             invalidEntryFlag = false;
             additionalShotValue = 0;
 
-            //Populate the array with 0's
+            //Populate the array with 0's.
             for (int i = 0; i < 10; i++)
             {
                 for (int j = 0; j < 2; j++)
@@ -54,24 +54,24 @@ namespace BowlingProgram
         }
 
 
-        //Compute and return the score for the given game:
+        //Compute and return the score for the given game.
         public int computeScore()
         {
             gameScore = 0;
 
-            //Iterate through all frames
+            //Iterate through all frames.
             for (int i = 0; i < 10; i++)
             {
-                //Add the value for the current frame to the total:
+                //Add the value for the current frame to the total.
                 gameScore += shotValue[i, 0];
                 gameScore += shotValue[i, 1];
 
-                //If the current frame was a strike, add the sum of the next two values:
+                //If the current frame was a strike, add the sum of the next two values.
                 if (frameHadStrike(i + 1))
                 {
                     gameScore += nextTwoShotsSum(i + 1);
                 }
-                //If the frame was a spare, add the next value:
+                //If the frame was a spare, add the next value.
                 if (frameHadSpare(i + 1))
                 {
                     gameScore += nextShotValue(i + 1, 2);
@@ -81,7 +81,7 @@ namespace BowlingProgram
         }
 
 
-        //Returns TRUE if the user enters an invalid string.
+        //Return TRUE if the user enters an invalid string.
         public bool hasInvalidEntry()
         {
             if(invalidEntryFlag)
@@ -96,7 +96,7 @@ namespace BowlingProgram
         }
 
 
-        //Returns TRUE if the user enters values totaling more than 10 for a given frame.
+        //Return TRUE if the user enters values totaling more than 10 for a given frame.
         public bool frameExceedsTenPoints()
         {
             bool framePointsFlag = false;
@@ -112,7 +112,7 @@ namespace BowlingProgram
         }
 
 
-        //Returns TRUE if a given frame had a strike:
+        //Return TRUE if a given frame had a strike.
         public bool frameHadStrike(int frameNumber)
         {
             if(shotValue[frameNumber - 1, 0] == 10)
@@ -126,7 +126,7 @@ namespace BowlingProgram
         }
 
 
-        //Returns true if a given frame had a spare:
+        //Return true if a given frame had a spare.
         public bool frameHadSpare(int frameNumber)
         {
             if(shotValue[frameNumber - 1, 0] != 10 && shotValue[frameNumber - 1, 0] != 10)
@@ -167,12 +167,12 @@ namespace BowlingProgram
         }
 
 
-        //Return the value of the next shot, given a frame and shot.
+        //Return the value of the next shot, given a current frame and shot.
         public int nextShotValue(int frameNumber, int shot)
         {
             if(frameNumber < 10)
             {
-                //If you got a strike or you are on the second shot, the next shot is the first shot in the next frame:
+                //If you got a strike or you are on the second shot, the next shot is the first shot in the next frame.
                 if (shotValue[frameNumber - 1, 0] == 10 || shot == 2)
                 {
                     return shotValue[frameNumber, 0];
@@ -185,12 +185,12 @@ namespace BowlingProgram
             }
             else if (frameNumber == 10)
             {
-                //If you are on the first shot, the next shot is the second one:
+                //If you are on the first shot, the next shot is the second one.
                 if (shot == 1)
                 {
                     return shotValue[frameNumber-1, 1];
                 }
-                //If you are on the second shot, the next shot is the additional one:
+                //If you are on the second shot, the next shot is the additional one.
                 else
                 {
                     return additionalShotValue;
@@ -203,7 +203,7 @@ namespace BowlingProgram
         }
 
 
-        //Enter values into shotValue array:
+        //Enter values into shotValue array.
         public void setShotValue(int frameNumber, int shotNumber, string textValueEntered)
         {
             if (int.TryParse(textValueEntered, out int value))
@@ -228,7 +228,7 @@ namespace BowlingProgram
         }
 
 
-        //Set the value of the additional shot on the tenth frame:
+        //Set the value of the additional shot on the tenth frame.
         public void setAdditionalShotValue(string additionalShot)
         {
             if (int.TryParse(additionalShot, out int value))
@@ -249,7 +249,7 @@ namespace BowlingProgram
         }
 
 
-        //Given the entries for the tenth frame, return TRUE if the player gets an additional shot:
+        //Return TRUE if the player gets an additional shot, given the entries for the tenth frame.
         public bool playerGetsAddionalShot(string lastFrameFirstShot, string lastFrameSecondShot)
         {
             if (int.TryParse(lastFrameFirstShot, out int i) && int.TryParse(lastFrameSecondShot, out int j))
