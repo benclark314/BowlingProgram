@@ -23,7 +23,7 @@ namespace BowlingProgram
         //Compute the score from values entered in the text fields, and then print it.
         private void button1_Click(object sender, EventArgs e)
         {
-            //Enter the text fields into the BowlingGame array
+            //Enter the text fields into the BowlingGame array.
             try
             {
                 thisGame.setShotValue(1, 1, textBox1.Text);
@@ -56,7 +56,7 @@ namespace BowlingProgram
             }
 
 
-            //Show error messages if the user enters incorrect values:
+            //Show error messages if the user enters incorrect values.
             if (thisGame.hasInvalidEntry())
             {
                 MessageBox.Show("Please enter valid numbers between 0 and 10", "Invalid Entry",
@@ -83,7 +83,7 @@ namespace BowlingProgram
             }
         }
 
-        //Make the additional shot visible if the player qualifies for an extra shot
+        //Make the additional shot visible if the player qualifies for an extra shot.
         private void textBox19_TextChanged(object sender, EventArgs e)
         {
             if (int.TryParse(textBox19.Text, out int i) && int.TryParse(textBox20.Text, out int j))
@@ -107,7 +107,7 @@ namespace BowlingProgram
             }
         }
 
-        //Make the additional shot visible if the player qualifies for an extra shot
+        //Make the additional shot visible if the player qualifies for an extra shot.
         private void textBox20_TextChanged(object sender, EventArgs e)
         {
 
@@ -132,7 +132,7 @@ namespace BowlingProgram
             }
         }
 
-        //Clear all textbox fields
+        //Clear all textbox fields.
         private void button2_Click(object sender, EventArgs e)
         {
             textBox1.Clear();
