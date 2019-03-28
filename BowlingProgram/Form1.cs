@@ -88,7 +88,7 @@ namespace BowlingProgram
         {
             if (int.TryParse(textBox19.Text, out int i) && int.TryParse(textBox20.Text, out int j))
             {
-                if (j > 10 - i)
+                if (j > 10 - i && i != 10)
                 {
                     MessageBox.Show("Your scores for the last frame are impossible to make!", "Invalid Entry",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -113,7 +113,7 @@ namespace BowlingProgram
 
             if (int.TryParse(textBox19.Text, out int i) && int.TryParse(textBox20.Text, out int j))
             {
-                if (j > 10 - i)
+                if (j > 10 - i && i != 10)
                 {
                     MessageBox.Show("Your scores for the last frame are impossible to make!", "Invalid Entry",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);

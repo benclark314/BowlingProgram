@@ -62,6 +62,22 @@ namespace BowlingProgram
             //Iterate through all frames.
             for (int i = 0; i < 10; i++)
             {
+                //If you're on the last frame, total the remaining score.
+                if(i == 9)
+                {
+                    gameScore += shotValue[i, 0];
+                    if (frameHadStrike(i + 1))
+                    {
+                        gameScore += nextTwoShotsSum(i + 1);
+                    }
+                    else if (frameHadSpare(i + 1))
+                    {
+                        gameScore += shotValue[i, 1];
+                        gameScore += nextShotValue(i + 1, 2);
+                    }
+                    break;
+                }
+
                 //Add the value for the current frame to the total.
                 gameScore += shotValue[i, 0];
                 gameScore += shotValue[i, 1];
@@ -129,7 +145,7 @@ namespace BowlingProgram
         //Return true if a given frame had a spare.
         public bool frameHadSpare(int frameNumber)
         {
-            if(shotValue[frameNumber - 1, 0] != 10 && shotValue[frameNumber - 1, 0] != 10)
+            if(shotValue[frameNumber - 1, 0] != 10)
             {
                 if (shotValue[frameNumber - 1, 0] + shotValue[frameNumber - 1, 1] == 10)
                 {
@@ -231,6 +247,7 @@ namespace BowlingProgram
         //Set the value of the additional shot on the tenth frame.
         public void setAdditionalShotValue(string additionalShot)
         {
+            additionalShotValue = 0;
             if (int.TryParse(additionalShot, out int value))
             {
                 if (value < 0 || value > 10)
