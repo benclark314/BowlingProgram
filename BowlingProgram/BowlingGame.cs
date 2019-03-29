@@ -58,20 +58,15 @@ namespace BowlingProgram
         public int computeScore()
         {
             gameScore = 0;
-
             for (int i = 0; i < 10; i++)
             {
                 if(i == 9)
                 {
                     gameScore += shotValue[i, 0];
-                    if (frameHadStrike(i + 1))
+                    gameScore += shotValue[i, 1];
+                    if (frameHadStrike(i + 1) || frameHadSpare(i + 1))
                     {
-                        gameScore += nextTwoShotsSum(i + 1);
-                    }
-                    else if (frameHadSpare(i + 1))
-                    {
-                        gameScore += shotValue[i, 1];
-                        gameScore += nextShotValue(i + 1, 2);
+                        gameScore += additionalShotValue;
                     }
                     break;
                 }
