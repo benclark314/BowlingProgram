@@ -59,10 +59,8 @@ namespace BowlingProgram
         {
             gameScore = 0;
 
-            //Iterate through all frames.
             for (int i = 0; i < 10; i++)
             {
-                //If you're on the last frame, total the remaining score.
                 if(i == 9)
                 {
                     gameScore += shotValue[i, 0];
@@ -78,16 +76,13 @@ namespace BowlingProgram
                     break;
                 }
 
-                //Add the value for the current frame to the total.
                 gameScore += shotValue[i, 0];
                 gameScore += shotValue[i, 1];
 
-                //If the current frame was a strike, add the sum of the next two values.
                 if (frameHadStrike(i + 1))
                 {
                     gameScore += nextTwoShotsSum(i + 1);
                 }
-                //If the frame was a spare, add the next value.
                 if (frameHadSpare(i + 1))
                 {
                     gameScore += nextShotValue(i + 1, 2);
@@ -188,12 +183,10 @@ namespace BowlingProgram
         {
             if(frameNumber < 10)
             {
-                //If you got a strike or you are on the second shot, the next shot is the first shot in the next frame.
                 if (shotValue[frameNumber - 1, 0] == 10 || shot == 2)
                 {
                     return shotValue[frameNumber, 0];
                 }
-                //If you didn't get a strike and you are on the first shot, the next shot is the second one in this frame.
                 else
                 {
                     return shotValue[frameNumber-1, 1];
@@ -201,12 +194,10 @@ namespace BowlingProgram
             }
             else if (frameNumber == 10)
             {
-                //If you are on the first shot, the next shot is the second one.
                 if (shot == 1)
                 {
                     return shotValue[frameNumber-1, 1];
                 }
-                //If you are on the second shot, the next shot is the additional one.
                 else
                 {
                     return additionalShotValue;
